@@ -1,6 +1,8 @@
 <h1 align="center">Yatube_api_final</h1>
 
-<h2 align="center">![alt text](https://github.com/elityaev/api_final_yatube/raw/master/yatube_api/static/YT.png?raw=true)</h2>
+<h2 align="center">
+  ![logo](https://github.com/elityaev/api_final_yatube/raw/master/yatube_api/static/YT.png)
+</h2>
 
 <h3 align="center">Описание</h3>
 
