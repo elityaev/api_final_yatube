@@ -57,7 +57,7 @@ api_final_yatube
 Cоздать и активировать виртуальное окружение:
 
 ```
-python -m venv env
+python -m venv venv
 .\venv\Scripts\activate
 python -m pip install --upgrade pip
 ```
