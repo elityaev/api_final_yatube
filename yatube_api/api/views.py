@@ -11,37 +11,24 @@ from posts.models import Post, Follow, Group
 
 class MyApiViewSet(viewsets.ModelViewSet):
 
-    def get_prefix(self):
-        class_name = self.__class__.__name__
-        prefix = class_name[:-7]
-        return prefix
-
-    def get_queryset(self):
-        prefix = self.get_prefix()
-        model = globals().get(prefix)
-        queryset = model.objects.all()
-        return queryset
-
-    def get_serializer_class(self):
-        prefix = self.get_prefix()
-        serializer_name = prefix + 'Serializer'
-        serializer_class = globals().get(serializer_name)
-        return serializer_class
-
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
 
 class PostViewSet(MyApiViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
     permission_classes = (IsAuthorOrReadOnly,)
     pagination_class = LimitOffsetPagination
 
 
-class GroupViewSet(MyApiViewSet):
-    http_method_names = ['get', 'head']
+class GroupViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
 
 
 class CommentViewSet(MyApiViewSet):
+    serializer_class = CommentSerializer
     permission_classes = (IsAuthorOrReadOnly,)
 
     def get_queryset(self):
@@ -55,7 +42,8 @@ class CommentViewSet(MyApiViewSet):
         )
 
 
-class FollowViewSet(MyApiViewSet):
+class FollowViewSet(viewsets.ModelViewSet):
+    serializer_class = FollowSerializer
     permission_classes = (IsAuthenticated,)
     filter_backends = (filters.SearchFilter,)
     search_fields = ('following__username',)

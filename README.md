@@ -1,4 +1,4 @@
-<h1 align="center">Yatube_api_final</h1>
+<h1 align="center">Yatube</h1>
 
 <h2 align="center">
   
@@ -57,9 +57,9 @@ api_final_yatube
 Cоздать и активировать виртуальное окружение:
 
 ```
-python3 -m venv env
-source env/bin/activate
-python3 -m pip install --upgrade pip
+python -m venv env
+.\venv\Scripts\activate
+python -m pip install --upgrade pip
 ```
 
 Установить зависимости из файла requirements.txt:
