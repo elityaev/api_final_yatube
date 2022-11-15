@@ -44,6 +44,11 @@ http://127.0.0.1:8000/api/v1/follow/
 - Обновление JWT-токена - http://127.0.0.1:8000/api/v1/jwt/refresh/
 - Проверка JWT-токена - http://127.0.0.1:8000/api/v1/jwt/verify/
 
+<h3 align="center">Технологии</h3>
+
+- Python
+- Django REST Framework
+- JWT + Djoser
 
 <h3 align="center">Как запустить проект</h3>
 
